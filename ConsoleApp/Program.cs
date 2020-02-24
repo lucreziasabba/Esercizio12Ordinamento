@@ -56,6 +56,35 @@ namespace ConsoleApp
                     w.WriteLine($"Selection Sort;{dim};{elapsed}");
                     Console.WriteLine($"Selection Sort;{dim};{elapsed}");
                 }
+                foreach (int dim in dimensioni)
+                {
+                    int[] array = new int[dim];
+                    Random r = new Random();
+                    for (int i = 0; i < dim; i++)
+                        array[i] = r.Next(0, 100);
+                    Stopwatch s = new Stopwatch();
+                    s.Start();
+                    MergeSort.mergeSort(array);
+                    s.Stop();
+                    long elapsed = s.ElapsedMilliseconds;
+                    w.WriteLine($"Merge Sort;{dim};{elapsed}");
+                    Console.WriteLine($"Merge Sort;{dim};{elapsed}");
+                }
+                foreach (int dim in dimensioni)
+                {
+                    int[] array = new int[dim];
+                    Random r = new Random();
+                    for (int i = 0; i < dim; i++)
+                        array[i] = r.Next(0, 100);
+                    Array.Sort(array);
+                    Stopwatch s = new Stopwatch();
+                    s.Start();
+                    QuickSort.Ordinamento(array);
+                    s.Stop();
+                    long elapsed = s.ElapsedMilliseconds;
+                    w.WriteLine($"Quick Sort;{dim};{elapsed}");
+                    Console.WriteLine($"Quick Sort;{dim};{elapsed}");
+                }
                 w.Flush();
             }
         }
